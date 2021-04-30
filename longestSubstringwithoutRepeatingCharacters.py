@@ -41,4 +41,22 @@ def lengthOfLongestSubstring(s):
         return maximum
 
 
-print (lengthOfLongestSubstring('pwwkew'))
+def lengthOfLongestSubstring2(s):
+    unique = set()
+    count = 0
+    out = []
+
+    for letter in range(len(s) - 1):
+        if s[letter] != s[letter + 1] and s[letter] not in unique:
+            unique.add(s[letter])
+            count += 1
+        else:
+            count = 0
+
+        out.append(count)
+
+    return max(out)
+
+
+print(lengthOfLongestSubstring2('abcabcabc'))
+print(lengthOfLongestSubstring('pwwkew'))
