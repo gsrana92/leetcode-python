@@ -40,12 +40,6 @@ class Graph:
 
         self.nodes[u].neighbors.append({v: weight})
 
-    def dfs(self, start):
-        visited = set()
-        stack = [start]
-
-        while stack:
-
 
     def print_graph(self):
 

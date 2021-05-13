@@ -30,9 +30,6 @@ def linkedList_reversal(head):
 
     return previous
 
-def reverse_to_nth_node(node):
-    
-
 
 def print_linkedList(node):
     while node.next is not None:
