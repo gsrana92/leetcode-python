@@ -13,7 +13,7 @@ def reverse1( x):
         return 0
 
 
-print reverse1(-120)
+print (reverse1(-120))
 
 def reverse(x):
     y = str(abs(x))
@@ -30,4 +30,4 @@ def reverse(x):
         return output
 
 
-print reverse(-1201)
+print (reverse(-1201))

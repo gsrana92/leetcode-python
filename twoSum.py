@@ -11,15 +11,6 @@ Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
 """
 
-
-def twoSum(nums, target):
-    res = []
-
-    for i in range(len(nums) - 1):
-        if target - nums[i] in nums:
-            res.append(i)
-
-    return res
-
+def twoSum
 
 print twoSum([2, 7, 11, 15], 9)

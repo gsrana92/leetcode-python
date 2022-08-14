@@ -45,33 +45,31 @@ All elements of candidates are distinct.
 """
 
 
-def combinationsSum(candidates, target):
-    result = []
+class Solution(object):
+    def combinationSum(self, candidates, target):
+        """
+        :type candidates: List[int]
+        :type target: int
+        :rtype: List[List[int]]
+        """
+        self.result = []
+        self.candidates = candidates
 
-    for candidate in candidates:
-        if target % candidate == 0 and candidate != target:
-            count = target // candidate
-            result.append(count * [candidate])
+        self.backtrack([], target, 0)
+        return self.result
 
-            print(result)
+    def backtrack(self, path, target, idx):
+        if target == 0:
+            self.result.append(path)
+            return
+        if target < 0:
+            return
 
-        if target in candidates:
-            result.append([target])
-
-    return result
-
-
-number = 8
-i = 2
-o = []
-if number % i == 0:
-    count = number // i
-    o.append(count * [i])
-
-print(o)
-
-print(combinationsSum([2,3,6,7], 7))
+        for i in range(idx, len(self.candidates)):
+            print('path  before is : ', path)
+            self.backtrack(path + [self.candidates[i]], target - self.candidates[i], i)
+            print('after is : ', path)
 
 
-
-print(bin(20))
+sol = Solution()
+print(sol.combinationSum([8,2,3,6,7], 7))

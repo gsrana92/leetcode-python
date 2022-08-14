@@ -14,7 +14,35 @@ Constraints:
 3 <= nums.length <= 10^3
 -10^3 <= nums[i] <= 10^3
 -10^4 <= target <= 10^4
+
 """
+
+def threeSumClose(nums, target):
+    best = 10000
+    nums.sort()
+
+    length = len(nums)
+    for i in range(length - 2):
+        l = i+1
+        r = length - 1
+
+        while l < r:
+            total = nums[i] + nums[l] + nums[r]
+
+            if total == target:
+                return total
+            if abs(target - total) < abs(target - best):
+                best = total
+
+            if total < target:
+                l = l+1
+            else:
+                r -= 1
+
+    return best
+
+print(threeSumClose([-1, 2, 1, -4], 1))
+
 
 
 def threeSumClosest(nums, target):

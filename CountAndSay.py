@@ -30,11 +30,55 @@ Constraints:
 """
 
 
+def next_number(s):
+    result = []
+    i = 0
+    while i < len(s):
+        count = 1
+        while i+1< len(s) and s[i] == s[i+1]:
+            i += 1
+            count += 1
+        result.append(str(count)+ s[i])
+        i += 1
+    return "".join(result)
+
+
 def countAndSay(n):
     if n == 1:
         return '1'
-    prev = countAndSay(n-1)
+    else:
+        s = '1'
+        for i in range(n-1):
+            s = next_number(s)
+    return s
+
+
+print(countAndSay(4))
+
+def countAnsSay2(n):
+    if n == 1:
+        return '1'
+    prev = countAnsSay2(n-1)
+    count = 1
+    result = ''
+    print("prev is: ", prev)
+
+    for i in range(len(prev)):
+        if i == len(prev)-1 or prev[i] != prev[i+1]:
+            result += str(count) + prev[i]
+            print('result is: ', result)
+            count = 1
+        else:
+            count += 1
+
+    return result
+
+print(countAnsSay2(4))
 
 
 
-print(countAndSay(1))
+
+
+
+
+
